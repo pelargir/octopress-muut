@@ -1,7 +1,7 @@
 octopress-moot
 ================
 
-Use Moot for Octopress blog post comments.
+Use Moot for Octopress post and page comments.
 
 ## Setup
 
