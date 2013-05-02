@@ -44,7 +44,7 @@ Replace "forum" with the fourm name you chose when you signed up for Moot.
 
 ## How to use the tag
 
-This plugin adds the `moot_comments` tag to your Octopress install. This tag inserts a non-threaded Moot comments block on the current page. The tag doesn't take any arguments:
+This plugin adds the `moot_comments` tag to your Octopress install. This tag inserts a non-threaded Moot comments section on the current page. The tag doesn't take any arguments:
 
 ``` md
   {% moot_comments %}

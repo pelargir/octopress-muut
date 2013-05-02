@@ -1,5 +1,5 @@
 # Title: Moot Comments tag for Jekyll
-# Authors: Matthew Bass http://www.matthewbass.com
+# Author: Matthew Bass http://www.matthewbass.com
 # Description: Easily output a Moot comments section for a blog post
 #
 # Syntax {% moot_comments %}
@@ -14,17 +14,26 @@ class MootCommentsTag < Liquid::Tag
     @moot_name = moot_name
   end
   
-  def moot_path(url)
+  def render(context)
+    %Q{<a class="moot" title="#{page_title}" href="https://api.moot.it/#{moot_name}/blog#{page_url}"></a>}
+  end
+  
+  def moot_name
+    context.environments.first['site']['moot_name']
+  end
+  
+  def page_title
+    context.environments.first['page']['title']
+  end
+  
+  def page_url
+    anchorize(context.environments.first['page']['url'])
+  end
+  
+  def anchorize(url)
     parts = url.split("/").compact
     last = parts.pop
     parts.join("/") + "#" + last
-  end
-  
-  def render(context)
-    moot_name = context.environments.first['site']['moot_name']
-    page_title = context.environments.first['page']['title']
-    page_url = moot_path(context.environments.first['page']['url'])
-    %Q{<a class="moot" title="#{page_title}" href="https://api.moot.it/#{moot_name}/blog#{page_url}"></a>}
   end
 end
 
