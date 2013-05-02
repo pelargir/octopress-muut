@@ -15,19 +15,10 @@ class MootCommentsTag < Liquid::Tag
   end
   
   def render(context)
+    moot_name = context.environments.first['site']['moot_name']
+    page_title = context.environments.first['page']['title']
+    page_url = anchorize(context.environments.first['page']['url'])
     %Q{<a class="moot" title="#{page_title}" href="https://api.moot.it/#{moot_name}/blog#{page_url}"></a>}
-  end
-  
-  def moot_name
-    context.environments.first['site']['moot_name']
-  end
-  
-  def page_title
-    context.environments.first['page']['title']
-  end
-  
-  def page_url
-    anchorize(context.environments.first['page']['url'])
   end
   
   def anchorize(url)
