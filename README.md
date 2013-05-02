@@ -32,15 +32,15 @@ To actually get the comments to appear at the bottom of each blog post, edit `so
 
 You can also add this code to `source/_layouts/page.html` if you want comments on your pages as well.
 
-Make sure the Markdown for your blog posts includes `comments: true` otherwise the comments won't show up.
+Make sure the metadata for your blog posts includes `comments: true` otherwise the comments won't show up.
 
 Finally, open `_config.yml` and add the following line:
 
 ``` md
-moot_name: forum-name
+moot_name: <forum>
 ```
 
-Replace "forum-name" with the Moot fourm name you chose when you signed up. And that's it. You can start using the new tags right away.
+Replace "forum" with the fourm name you chose when you signed up for Moot.
 
 ## How to use the tag
 
