@@ -1,7 +1,7 @@
-octopress-moot
+octopress-muut
 ================
 
-Use Moot for Octopress post and page comments.
+Use Muut for Octopress post and page comments.
 
 ## Setup
 
@@ -10,22 +10,22 @@ Use Moot for Octopress post and page comments.
 Download the files in this repository. Copy the `.rb` and `.html` files into the corresponding directories in your Octopress instance. This might work:
 
 ``` bash
-$ cd octopress-moot
+$ cd octopress-muut
 $ find . \( -name '*.rb' -o -name '*.html' \) -exec cp {} /path/to/octopress/{} \;
 ```
 
 Next, open the file `source/_includes/head.html` in your Octopress install and add this to the bottom:
 
 ``` md
-{% include custom/moot_head.html %} 
+{% include custom/muut_head.html %} 
 ```
 
 To actually get the comments to appear at the bottom of each blog post, edit `source/_layouts/post.html` and add this immediately after the closing `</article>` tag:
 
 ``` md
-{% if site.moot_name and page.comments == true %}
+{% if site.muut_name and page.comments == true %}
   <section>
-    {% moot_comments %}
+    {% muut_comments %}
   </section>
 {% endif %}
 ```
@@ -37,15 +37,15 @@ Make sure the metadata for your blog posts includes `comments: true` otherwise t
 Finally, open `_config.yml` and add the following line:
 
 ``` md
-moot_name: <forum>
+muut_name: <forum>
 ```
 
-Replace "forum" with the fourm name you chose when you signed up for Moot.
+Replace "forum" with the fourm name you chose when you signed up for Muut.
 
 ## How to use the tag
 
-This plugin adds the `moot_comments` tag to your Octopress install. This tag inserts a non-threaded Moot comments section on the current page. The tag doesn't take any arguments:
+This plugin adds the `muut_comments` tag to your Octopress install. This tag inserts a non-threaded Muut comments section on the current page. The tag doesn't take any arguments:
 
 ``` md
-  {% moot_comments %}
+  {% muut_comments %}
 ```

@@ -1,24 +1,24 @@
-# Title: Moot Comments tag for Jekyll
+# Title: Muut Comments tag for Jekyll
 # Author: Matthew Bass http://www.matthewbass.com
-# Description: Easily output a Moot comments section for a blog post
+# Description: Easily output a Muut comments section for a blog post
 #
-# Syntax {% moot_comments %}
+# Syntax {% muut_comments %}
 #
 # Output:
-# <a class="moot" title="Page title" href="https://api.moot.it/site/page#title"></a>
+# <a class="muut" href="https://muut.com/i/site/comments"></a>
 #
 
-class MootCommentsTag < Liquid::Tag
-  def initialize(tag_name, moot_name, tokens)
+class MuutCommentsTag < Liquid::Tag
+  def initialize(tag_name, muut_name, tokens)
     super
-    @moot_name = moot_name
+    @muut_name = muut_name
   end
   
   def render(context)
-    moot_name = context.environments.first['site']['moot_name']
+    muut_name = context.environments.first['site']['muut_name']
     page_title = context.environments.first['page']['title']
     page_url = anchorize(context.environments.first['page']['url'])
-    %Q{<a class="moot" title="#{page_title}" href="https://api.moot.it/#{moot_name}/blog#{page_url}"></a>}
+    %Q{<a class="muut" href="https://muut.com/i/#{muut_name}/blog#{page_url}"></a>}
   end
   
   def anchorize(url)
@@ -28,4 +28,4 @@ class MootCommentsTag < Liquid::Tag
   end
 end
 
-Liquid::Template.register_tag('moot_comments', MootCommentsTag)
+Liquid::Template.register_tag('muut_comments', MuutCommentsTag)
